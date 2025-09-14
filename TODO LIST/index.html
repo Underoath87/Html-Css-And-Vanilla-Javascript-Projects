@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Todo List</title>
+  </head>
+  <body>
+    <div class="app">
+      <!-- Header -->
+      <header>
+        <h1>
+          <i class="fas fa-check-circle"></i>
+          My Task
+        </h1>
+        <p id="date">Monday, Agust 22, 2025</p>
+      </header>
+
+      <!-- Todo input  -->
+      <div class="todo-input">
+        <input
+          type="text"
+          id="task-input"
+          placeholder="What dou you need to do?"
+        />
+        <button id="add-task">
+          <i class="fas fa-plus"></i>
+        </button>
+      </div>
+
+      <!-- Filters -->
+      <div class="filters">
+        <span class="filter active" data-filter="all">All</span>
+        <span class="filter" data-filter="active">Active</span>
+        <span class="filter" data-filter="completed">Completed</span>
+      </div>
+
+      <!-- todos container -->
+      <div class="todos-container">
+        <ul id="todos-list">
+          <!-- li items will be inserted here for the javascript code -->
+          <!-- <li class="todo-item completed">
+            <label class="checkbox-container">
+              <input type="checkbox" class="todo-checkbox" />
+              <span class="checkmark"></span>
+            </label>
+            <span class="todo-item-text">Buy Groceries</span>
+            <button class="delete-btn"><i class="fas fa-times"></i></button>
+          </li> -->
+        </ul>
+
+        <div class="empty-state hidden">
+          <i class="fas fa-clipboard-list"></i>
+          <p>No task here yet</p>
+        </div>
+      </div>
+
+      <!-- footer -->
+      <footer>
+        <p id="items-left">0 items left</p>
+        <button id="clear-completed">Clear completed</button>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Random Quotes Generator</title>
+  </head>
+  <body>
+    <div class="container">
+      <main class="app">
+        <header class="app-header">
+          <h1 class="app-title">Quote of the Day</h1>
+        </header>
+
+        <div class="quote" id="quoteBox">
+          <blockquote class="quote-text" id="quoteText">
+            Click New Quote to get started <br />
+            New Quote to get started
+          </blockquote>
+          <figcaption class="quote-author" id="quoteAuthor">
+            — Unknow
+          </figcaption>
+        </div>
+
+        <div class="actions-btn">
+          <button class="btn btn-primary" id="newQuoteBtn">
+            <span>New Quote</span>
+          </button>
+
+          <div class="actions-right-btn">
+            <button class="icon-btn" id="voiceBtn">
+              <span class="material-symbol" aria-hidden="true">🔊</span>
+            </button>
+
+            <button class="icon-btn" id="copyBtn">
+              <span class="material-symbol" aria-hidden="true">📋</span>
+            </button>
+
+            <button class="icon-btn" id="tweetBtn">
+              <span class="material-symbol" aria-hidden="true">🐦</span>
+            </button>
+          </div>
+        </div>
+      </main>
+
+      <footer class="app-footer">
+        <small>Build with HTML, CSS and JAVASCRIPT</small>
+      </footer>
+    </div>
+  </body>
+</html>

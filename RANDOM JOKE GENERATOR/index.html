@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <title>Random Joke Generator</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>😄 Random Joke Generator</h1>
+        <p>Brighten your day with a burst of laughter!</p>
+      </header>
+
+      <main>
+        <div class="joke-card">
+          <div class="joke-content">
+            <p id="joke-text">Click the button below to get a random joke!</p>
+          </div>
+
+          <div class="loading" id="loading" style="display: none">
+            <div class="spinner"></div>
+            <p>Loading Joke ....</p>
+          </div>
+
+          <button id="joke-btn" class="joke-btn">🎭 Get New Joke</button>
+        </div>
+      </main>
+
+      <footer>
+        <p>Powered by <a href="https://joke.dev" target="blank">JokeAPI</a></p>
+      </footer>
+    </div>
+  </body>
+</html>

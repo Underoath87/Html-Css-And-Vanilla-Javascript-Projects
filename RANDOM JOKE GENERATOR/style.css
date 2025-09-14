@@ -1,0 +1,210 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Mono:100,200,300,regular,500,600,700,100italic,200italic,300italic,italic,500italic,600italic,700italic);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto Mono";
+  background: #373b44; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #4286f4,
+    #373b44
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #4286f4,
+    #373b44
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Main container styling */
+.container {
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+}
+
+/* Header styling */
+header {
+  margin-bottom: 2.5rem;
+  color: white;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.6rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+header p {
+  font-size: 1.1rem;
+  opacity: 0.7;
+}
+
+/* Joke card styling */
+.joke-card {
+  background-color: whitesmoke;
+  border-radius: 10px;
+  padding: 2.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.8rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 400px; /*fixed the height to prevent card jumping*/
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.joke-card:hover {
+  /* transform: translateY(-5px); */
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* Joke content styling */
+.joke-content {
+  margin-bottom: 1.8rem;
+  height: 120px; /* Fixed height to prevent container jumping */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Hide any content that exceeds the height */
+  flex: 1; /* Take up available space */
+  color: #333;
+}
+
+#joke-text {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: #333;
+  font-weight: 500;
+}
+
+/* Loading animation styling */
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.loading p {
+  color: #333;
+  font-size: 1.1rem;
+}
+
+/* Spinner animation */
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Button styling */
+.joke-btn {
+  background: #00b4db; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #0083b0,
+    #00b4db
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #0083b0,
+    #00b4db
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: #fff;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px rgba(120, 126, 234, 0.4);
+  width: 50%;
+  margin: 0 auto;
+}
+
+.joke-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+}
+
+.joke-btn:active {
+  transform: translateY(0);
+}
+
+.joke-btn:disabled {
+  opacity: 0.2;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Footer styling */
+
+footer {
+  color: #fff;
+  opacity: 0.8;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+footer:hover {
+  text-decoration: underline;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 2px;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  .joke-card {
+    padding: 30px 20px;
+    height: 350px;
+  }
+
+  .joke-content {
+    height: 100px;
+  }
+
+  #joke-text {
+    font-size: 1.1rem;
+  }
+
+  .joke-btn {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+}

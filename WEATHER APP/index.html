@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <title>Weather Forecast</title>
+  </head>
+  <body>
+    <div class="bg"></div>
+    <!-- HEADER -->
+    <header class="app-header">
+      <h1 class="brand">Weather Report and Condition</h1>
+      <p class="tag">Get accurate, real-time forecast right in your pocket</p>
+    </header>
+
+    <main class="container">
+      <!-- SEARCH SECTION -->
+      <section class="search">
+        <form id="search-form" class="search-form" autocomplete="off">
+          <input
+            type="text"
+            id="city-input"
+            class="input"
+            placeholder="Search city (e.g., London)"
+            aria-label="City"
+            required
+          />
+          <button class="button" type="submit" aria-label="Search weather">
+            Search
+          </button>
+          <button
+            class="button ghost"
+            id="locate-btn"
+            type="button"
+            aria-labe="Use my location"
+          >
+            Use my location
+          </button>
+        </form>
+        <div id="message" class="message" role="status" aria-live="polite">
+          Tips: search accurate city or country
+        </div>
+      </section>
+
+      <section id="result" class="card hidden" aria-live="polite">
+        <div class="card-header">
+          <!-- place and country -->
+          <div class="place">
+            <span id="place-name" class="place-name">Italy</span>
+            <span id="place-country" class="place-country">, il</span>
+          </div>
+
+          <!-- unit toggle button -->
+          <div class="unit-toggle">
+            <button
+              id="unit-toggle"
+              class="unit-btn active"
+              data-unit="celsius"
+            >
+              °C
+            </button>
+            <button class="unit-btn" data-unit="fahrenheit">°F</button>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="temp">
+            <div id="weather-emoji" class="emoji">⛅</div>
+            <div class="temp-value">
+              <span id="temperature" class="temperature">82</span>
+              <span class="unit">°C</span>
+            </div>
+          </div>
+
+          <div id="condition" class="condition">Partly Cloudly</div>
+
+          <div class="meta">
+            <div class="meta-item">
+              <span class="meta-label">Feels like</span>
+              <span id="apparent" class="meta-value">93°F</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Humidity</span>
+              <span id="humidity" class="meta-value">80%</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Wind</span>
+              <span id="wind" class="meta-value">29 km/h</span>
+            </div>
+          </div>
+
+          <div class="forecast">
+            <div class="forecast-title">Next 5 days</div>
+            <div id="forecast" class="forecast-grid"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <p>
+        Data by
+        <a href="https://open-meteo.com/" target="_blank" rel="noopener"
+          >Open‑Meteo</a
+        >
+      </p>
+    </footer>
+  </body>
+</html>
