@@ -96,8 +96,8 @@ const descriptionFromCode = (code) => {
 };
 
 //HELPER FUNCTIONS
-const mpsToKmh = (mps) => Math.round(mps * 3.6);
-const celsiusToFahrenheit = (celsius) => Math.round((celsius * 9) / 5 + 32); // convert celsus to fahrenheit
+const mpsToKmh = (mps) => Math.round(mps * 3.6); // conver mps to km/h
+const celsiusToFahrenheit = (celsius) => Math.round((celsius * 9) / 5 + 32); // convert celsius to fahrenheit
 
 //toggle celsius and fahrenheit button if it exist return dataset.unit if not found return celsius as default value;
 const getCurrentUnit = function () {
@@ -108,13 +108,19 @@ const getCurrentUnit = function () {
 //if the active button is fahrenheit, convert it to celsius if its false just round up only the celsius
 const formatTemperature = function (celsius) {
   return getCurrentUnit() === 'fahrenheit'
-    ? celsiusToFahrenheit
+    ? celsiusToFahrenheit(celsius)
     : Math.round(celsius);
 };
 
 // if active button exist return either °F or °C
 const getUnitSymbol = function () {
   return getCurrentUnit() === 'fahrenheit' ? '°F' : '°C';
+};
+
+//show message to the user
+const showMessage = function (text, type = 'success') {
+  elements.message.textContent = text;
+  elements.message.className = `message ${type}`;
 };
 
 //API FUNCTIONS
@@ -171,21 +177,23 @@ const renderWeather = function (location, weather) {
   //   console.error('⚠️ Missing current data:', weather);
   //   return;
   // }
+
   // store data for unit conversion
   currentWeatherData = weather;
   currentLocationData = location;
 
-  console.log(currentLocationData, currentWeatherData);
+  console.log(currentWeatherData, currentLocationData);
 
+  // take out current object from weather json
   const { current } = weather;
-  const isNight = current.is_day === 0;
+  const isNight = current.is_day === 0; // if the current.is_day is 0 return night if 1 above return day
 
   console.log(current);
 
-  // update main weather display
+  // update main weather display int he UI
   elements.placeName.textContent = location.name;
   elements.placeCountry.textContent = location.country_code
-    ? `, ${location.country_code}`
+    ? `, ${location.country_code}` // if there is country return, if there's no return empty
     : '';
   elements.weatherEmoji.textContent = codeToEmoji(
     current.weather_code,
@@ -230,6 +238,7 @@ const renderForecast = function (daily) {
 
   console.log(days);
 
+  // map over the days variables and make container forecast days was inserted in the parent elements which is forecastGrid
   elements.forecastGrid.innerHTML = days
     .map((day) => {
       const date = new Date(day.date);
@@ -290,31 +299,11 @@ const searchByLocation = async function () {
       const message =
         error.code === 1
           ? 'Location permission denied'
-          : 'Could not get your locatio';
+          : 'Could not get your location';
       showMessage(message, 'error');
     }
   );
 };
-
-//show message to user
-const showMessage = function (text, type = 'success') {
-  elements.message.textContent = text;
-  elements.message.className = `message ${type}`;
-};
-
-//EVENT LISTENER
-elements.form.addEventListener('submit', function (e) {
-  e.preventDefault();
-
-  const city = elements.input.value.trim();
-
-  if (!city) {
-    showMessage('Please eneter a city to search', 'error');
-    return;
-  }
-
-  searchByCity(city);
-});
 
 // REFACTORED UNIT BUTTONS
 const handleUnitChange = function (e) {
@@ -329,7 +318,21 @@ const handleUnitChange = function (e) {
   }
 };
 
-// USE MY LOCATION
+//EVENT LISTENER
+elements.form.addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const city = elements.input.value.trim();
+
+  if (!city) {
+    showMessage('Please enetr a city to search', 'error');
+    return;
+  }
+
+  searchByCity(city);
+});
+
+// ATTACH LOCATE BTN IN LISTENER AND CALL FUNCTION searchByLocation
 elements.locateBtn.addEventListener('click', searchByLocation);
 
 //TODO FOR REVIEW FOR TOMORROW
@@ -354,6 +357,7 @@ const updateTemperatureDisplay = function () {
 //   });
 // });
 
+// event listner for toggling unit buttons
 elements.unitButtons.forEach((btn) => {
   btn.addEventListener('click', handleUnitChange);
 });

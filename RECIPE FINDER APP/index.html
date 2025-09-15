@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Css -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Javascript -->
+    <script src="script.js" defer></script>
+
+    <title>Recipe Finder App</title>
+  </head>
+  <body>
+    <!-- Header with navigation -->
+    <header class="header">
+      <div class="container">
+        <div class="nav-brand">
+          <h1><i class="fa-solid fa-bowl-food"></i> Recipe Finder</h1>
+        </div>
+
+        <div class="nav">
+          <ul class="nav-menu">
+            <li><a href="#Vegan">Vegan</a></li>
+            <li><a href="#Keto">Keto</a></li>
+            <li><a href="#Diet">Diet</a></li>
+          </ul>
+
+          <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main content area -->
+    <main class="main">
+      <div class="container">
+        <!-- Hero section with search -->
+        <section class="hero">
+          <div class="hero-content">
+            <h2>Search for Delicious Recipes</h2>
+            <p>Craving something new? Find the perfect recipe here</p>
+
+            <!-- Search bar -->
+            <div class="search-container">
+              <div class="search-box">
+                <i class="fas fa-search search-icon"></i>
+                <input
+                  type="text"
+                  id="searchInput"
+                  placeholder="Search for recipes..."
+                />
+                <button id="searchBtn" class="search-btn">
+                  <i class="fas fa-search search-icon"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Result recipe section -->
+        <section class="recipes-section">
+          <div class="section-header">
+            <h3>Recipe Results</h3>
+            <div class="results-count">
+              <span id="resultsCount">0 recipes found</span>
+            </div>
+          </div>
+
+          <!-- Loading spinner -->
+          <div
+            id="loadingSpinner"
+            class="loading-spinner"
+            style="display: none"
+          >
+            <div class="spinner"></div>
+            <p>Searching for Recipes</p>
+          </div>
+
+          <!-- Recipe grid -->
+          <div id="recipeGrid" class="recipe-grid">
+            <!-- Recipe cards will be dynamically inserted here -->
+          </div>
+
+          <!-- No result message -->
+          <div id="noResults" class="no-results" style="display: none">
+            <i class="fa-solid fa-plate-wheat"></i>
+            <h4>No recipes found</h4>
+            <p>Try searching with different keywords</p>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Recipe details modal -->
+    <div id="recipeModal" class="modal">
+      <div class="modal-content">
+        <!-- Modal header -->
+        <div class="modal-header">
+          <h2 id="modalRecipeTitle">Recipe Details</h2>
+          <button id="closeModal" class="close-btn">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="modal-recipe-image">
+            <img src="" alt="Recipe Image" id="modalRecipeImage" />
+          </div>
+
+          <div class="modal-recipe-info">
+            <div class="recipe-meta-row">
+              <div class="meta-item">
+                <i class="fas fa-clock"></i>
+                <span id="modalRecipeTime">30 min</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-users"></i>
+                <span id="modalRecipeServings">4 servings</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-flag"></i>
+                <span id="modalRecipeArea">International</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-tag"></i>
+                <span id="modalRecipeCategory">Main Course</span>
+              </div>
+            </div>
+
+            <div class="ingredients-section">
+              <h3><i class="fas fa-list"></i> Ingredients</h3>
+              <ul id="modalIngredients" class="ingredient-list">
+                <!-- Ingredients will be inserted here -->
+              </ul>
+            </div>
+
+            <div class="instructions-section">
+              <h3><i class="fas fa-book"></i> Instructions</h3>
+              <div class="instruction-content" id="modalInstructions">
+                <!-- Instruction will be inserted here -->
+              </div>
+            </div>
+
+            <div class="modal-actions">
+              <button id="closeModalBtn" class="close-modal-btn">
+                <i class="fas fa-times"></i>
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="container">
+        <p>
+          &copy; 2025 Recipe Finder. Made with <i class="fas fa-heart"></i> for
+          food lovers
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
